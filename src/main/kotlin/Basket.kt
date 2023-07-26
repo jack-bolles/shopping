@@ -1,4 +1,4 @@
-class Basket(val items: List<Any> = emptyList()) {
+data class Basket(val items: List<Any> = emptyList()) {
     fun add(item: Item): Basket {
         return Basket(items + item)
     }
@@ -7,4 +7,7 @@ class Basket(val items: List<Any> = emptyList()) {
         return items.count()
     }
 
+    fun remove(item: Item): Basket {
+        return Basket(items - item)
+    }
 }
