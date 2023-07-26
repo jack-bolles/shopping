@@ -10,4 +10,8 @@ data class Basket(val items: List<Any> = emptyList()) {
     fun remove(item: Item): Basket {
         return Basket(items - item)
     }
+
+    fun totalPrice(): Int {
+        TODO("Not yet implemented")
+    }
 }
