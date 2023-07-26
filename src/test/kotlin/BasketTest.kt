@@ -1,9 +1,6 @@
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-val APPLE = Item("Apple", Pricing(24, VATType.Zero))
-val MANGO = Item("Mango", Pricing(36, VATType.Zero))
-
 class BasketTest {
     @Test fun `can add items to a basket`(){
         val basket = Basket().add(APPLE)

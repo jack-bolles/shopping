@@ -12,6 +12,8 @@ data class Basket(val items: List<Item> = emptyList()) {
     }
 
     fun totalPrice(): Int {
-        return items.fold(0){acc, it -> acc + it.pricing.price()}
+        val groupBy: Map<Item, List<Item>> = items.groupBy { it }
+        val map: Map<Item, Int> = groupBy.mapValues { it.key.pricing.priceOf(it.value.size) }
+        return map.values.fold(0){acc, it -> acc + it}
     }
 }
