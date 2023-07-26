@@ -4,10 +4,14 @@ data class Item(val name: String, val pricing: Pricing) {
     }
 }
 
-//amount in Decimal -> 1 GBP == 100
-data class Pricing(val costInDecimal:Int, val vat:VATType) {
+/**
+ * @param netCost is basic price, in Decimal -> 1 GBP == 100
+ * @param vat is the appropriate VAT Type for this item
+ */
+
+data class Pricing(val netCost:Int, val vat:VATType) {
     fun price(): Int {
-        return costInDecimal * (100+vat.rate) / 100
+        return netCost * (100+vat.rate) / 100
     }
 }
 

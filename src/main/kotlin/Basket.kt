@@ -1,4 +1,4 @@
-data class Basket(val items: List<Any> = emptyList()) {
+data class Basket(val items: List<Item> = emptyList()) {
     fun add(item: Item): Basket {
         return Basket(items + item)
     }
@@ -12,6 +12,6 @@ data class Basket(val items: List<Any> = emptyList()) {
     }
 
     fun totalPrice(): Int {
-        TODO("Not yet implemented")
+        return items.fold(0){acc, it -> acc + it.pricing.price()}
     }
 }
